@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.10.1 — 2026-09-08
+
+- Change the base image in the generated `Dockerfile` from `bitnami/minideb:bullseye` to `debian:bookworm-slim` (Debian 12) for the `fetch` and `install` stages ([#252](https://github.com/wildlife-dynamics/wt/pull/252))
+
 ## v0.10.0 — 2026-09-07
 
 - **Breaking:** the generated `pixi.toml` no longer emits a `[system-requirements]` table (deprecated in pixi v0.71.0). The 4.4.0 minimum Linux kernel is now pinned inline on the `[workspace].platforms` linux entries as a "rich platform" (`{platform = "linux-64", linux = "4.4.0"}`), so **compiled workflows now require pixi >= 0.71**. `PixiToml.system_requirements` is removed and `PixiWorkspace.platforms` is retyped to `WorkspacePlatformType`; `PlatformWithLinuxRequirement`, `WorkspacePlatformType`, `DEFAULT_WORKSPACE_PLATFORMS` and `LINUX_KERNEL_VERSION` are new in `wt_compiler.requirements` ([#247](https://github.com/wildlife-dynamics/wt/pull/247))
