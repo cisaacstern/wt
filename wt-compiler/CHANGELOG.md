@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.10.0 — 2026-09-07
+
+- **Breaking:** the generated `pixi.toml` no longer emits a `[system-requirements]` table (deprecated in pixi v0.71.0). The 4.4.0 minimum Linux kernel is now pinned inline on the `[workspace].platforms` linux entries as a "rich platform" (`{platform = "linux-64", linux = "4.4.0"}`), so **compiled workflows now require pixi >= 0.71**. `PixiToml.system_requirements` is removed and `PixiWorkspace.platforms` is retyped to `WorkspacePlatformType`; `PlatformWithLinuxRequirement`, `WorkspacePlatformType`, `DEFAULT_WORKSPACE_PLATFORMS` and `LINUX_KERNEL_VERSION` are new in `wt_compiler.requirements` ([#247](https://github.com/wildlife-dynamics/wt/pull/247))
+- Fix the generated `docker-build` task to trail each line with `&&` rather than lead the next line with it — pixi >= 0.68 parses multi-line tasks with `deno_task_shell`, which treats a newline as a command separator and rejects a line beginning with `&&` ([#247](https://github.com/wildlife-dynamics/wt/pull/247))
+- `get_data_connection_property_names()` in the generated `metadata.py` now resolves `$ref`s transitively through `$defs`, so connections nested inside referenced models are discovered; keys are emitted in sorted order and self-referential schemas no longer recurse forever ([#242](https://github.com/wildlife-dynamics/wt/pull/242))
+
 ## v0.9.1 — 2026-08-21
 
 - Fix `_iframe_widgets_from_response_json` in the generated conftest template to properly handle both versions of the dashboard contract ([#237](https://github.com/wildlife-dynamics/wt/pull/237))

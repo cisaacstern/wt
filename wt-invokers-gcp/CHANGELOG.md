@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.2 — 2026-09-07
+
+- Lockstep release with wt-invokers v0.5.2
+
 ## v0.4.1 — 2026-06-15
 
 - Lockstep release with wt-invokers v0.4.1
