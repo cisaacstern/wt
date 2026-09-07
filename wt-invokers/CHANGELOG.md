@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.2 — 2026-09-07
+
+- Bump the sandbox image's pixi base from `0.63.0` to `0.78.0`, so the published `ghcr.io/wildlife-dynamics/wt-invokers:sandbox-0.5.2` image can solve environments for workflows compiled by wt-compiler >= 0.10.0, whose `pixi.toml` uses rich platforms (pixi >= 0.71) ([#247](https://github.com/wildlife-dynamics/wt/pull/247))
+- No changes to the Python package contents
+
 ## v0.5.1 — 2026-08-17
 
 - Fix Windows path handling: route `file://` results URLs through `url2pathname` before `mkdir` so paths resolve correctly on Windows; a no-op on POSIX ([#232](https://github.com/wildlife-dynamics/wt/pull/232))
